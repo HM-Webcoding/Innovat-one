@@ -45,6 +45,7 @@ let counterFunc = () => {
     let countEndNumber = counterEl.dataset.counted;
     //cunting calculation
     let countingNum = 0;
+
     let counterUp = () => {
       countingNum++;
       counterEl.innerHTML = countingNum + "k";
@@ -56,12 +57,8 @@ let counterFunc = () => {
 
     let timing = setInterval(() => {
       counterUp();
-    }, 5);
+    }, 60);
   });
 };
 
-galleryPartElement.addEventListener("mousemove", counterFunc);
-
-setTimeout(() => {
-  galleryPartElement.removeEventListener("mousemove", counterFunc);
-}, 3000);
+galleryPartElement.addEventListener("mousemove", counterFunc, { once: true });
