@@ -62,3 +62,21 @@ let counterFunc = () => {
 };
 
 galleryPartElement.addEventListener("mousemove", counterFunc, { once: true });
+
+let toTopEl = document.querySelector(".to-top");
+
+window.onscroll = () => {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    toTopEl.style.display = "block";
+  } else {
+    toTopEl.style.display = "none";
+  }
+};
+
+toTopEl.addEventListener("click", () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+});
